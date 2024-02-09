@@ -210,7 +210,7 @@ See, for the longest time, outside of C and C++, LLVM never really had to worry 
 
 In Rust, even when you have a raw pointer, as long as you never dereference it, you can do _anything you want with it_ and it's considered safe[^⁶]. Thus, as far as Rust's semantics are concerned, comparing dangling pointers is just fine, because none of the program's invariants can be broken that way. LLVM happens to disagree, leading to the absolute mess that we stumbled upon at the beginning.
 
-[^⁶]: `add` and `sub` are exceptions, because their output must _always_ be a dereferenceable pointer. This allows them to be more aggressively optimised, at the cost of permitting UB.
+[^⁶]: `add` and `sub` are exceptions, because they give stronger guarantees about their result in exchange for permitting UB.
 
 Finally, we saved the best for last: in Rust, pointer comparison is defined as a comparison _of their addresses alone_. In other words, the program was wrong to output `false` from the get-go, even before the non-determinism reared its ugly head.
 
