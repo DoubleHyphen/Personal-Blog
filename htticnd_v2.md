@@ -11,7 +11,7 @@ And it all started from one small, seemingly-innocent question, namely the follo
 
 In university, I was taught C and C++. I of course had to know what a pointer is in order to pass, and so it was explained to me: It is merely an address in the computer's memory, that knows what it's supposed to find there. By dereferencing it with the asterisk, you instruct the computer to go to that address and read or write something.
 
-Many years later, I chanced upon the blogs of Ralf Jung and Gankra. “Nay!” said they. “A pointer is no mere address! There is more information we associate with it! We don't care just where it points, we also care where that address **came from**! In fact, there is even that one architecture where two pointers with equal addresses can compare unequal if they **come from** different allocations!”.
+Many years later, I chanced upon the blogs of Ralf Jung and Gankra. “Nay!” said they. “A pointer is no mere address! There is more information we associate with it! We don't care just where it points, we also care where that address __**came from**__! In fact, there is even that one architecture where two pointers with equal addresses can compare unequal if they __**come from**__ different allocations!”.
 
 At first I didn't pay much heed to this. But slowly, a question started brewing inside my mind: “What does Rust do in ordinary architectures, anyway?”. Finally, “just as a quick experiment just before bed”, I wrote a program that examined just that.
 
