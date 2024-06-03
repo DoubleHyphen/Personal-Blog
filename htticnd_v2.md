@@ -212,17 +212,12 @@ In Rust, even when you have a raw pointer, as long as you never dereference it, 
 
 [^⁶]: `add` and `sub` are exceptions, because they give stronger guarantees about their result in exchange for permitting UB.
 
-Finally, we saved the best for last: in Rust, pointer comparison is defined as a comparison _of their addresses alone_. In other words, the program was wrong to output `false` from the get-go, even before the non-determinism reared its ugly head.
 
-# So… now what?
+# And the ~~best~~ worst part is yet to come!
 
-Now, we shake our heads in impotent disappointment, and twiddle our thumbs in wait.
+Firstly: in Rust, pointer comparison is defined as a comparison _of their addresses alone_. In other words, the program was wrong to output `false` from the get-go, even before the non-determinism reared its ugly head.
 
-I previously made the prediction that we will see a Rust-side work-around long before we see an LLVM-side solution. Currently, neither appears feasible, so we have no choice but to wait and see.
-
-## PS: In case you hadn't despaired enough already…
-
-…this behaviour can _also_ reliably trigger on GCC. All it takes is to translate the program to C:
+And secondly: remember how I said at the beginning that this is a C-language-family problem? Let's translate the program to C and experiment further:
 ```c
 #include <stdio.h>
 #include <stdint.h>
@@ -249,5 +244,11 @@ int main(void) {
 }
 ```
 This program produces the exact same behaviour, in both GCC and Clang, with both C++ and C compilers, as long as optimisations are enabled. The problem runs very, _very_ deep. (BTW, if this bug has already been reported in GCC, I'd appreciate a link.)
+
+# So… now what?
+
+Now, we shake our heads in impotent disappointment, and twiddle our thumbs in wait.
+
+I previously made the prediction that we will see a Rust-side work-around long before we see an backend-side solution. However, it's been nearly a year and a half since this was discovered, and nothing has been done yet on either side. Thus, neither appears feasible currently, so we have no choice but to wait and see.
 
 [^²]: FORTRAN and COBOL are older, but got pointers _much_ later than C. PL/I, ALGOL, Pascal and BASIC did have pointers from the get-go, but are no longer in wide use.
