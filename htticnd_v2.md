@@ -217,7 +217,7 @@ In Rust, even when you have a raw pointer, as long as you never dereference it, 
 
 Firstly: in Rust, pointer comparison is defined as a comparison _of their addresses alone_. In other words, the program was wrong to output `false` from the get-go, even before the non-determinism reared its ugly head.
 
-And secondly: remember how I said at the beginning that this is a C-language-family problem? Let's translate the program to C and experiment further:
+And secondly: remember how I said at the beginning that this is a C-language-family problem? Yeah, that's not just an LLVM issue. Let's translate the program to C and experiment further:
 ```c
 #include <stdio.h>
 #include <stdint.h>
