@@ -1,8 +1,8 @@
-# Introduction
+# How to turn integer comparison non-deterministic
 
-Sometimes, the greatest quests for knowledge begin with a simple question. From that question, more and more interesting answers are revealed, until one concludes the quest more knowledgeable and more mature. 
+I used to think that integer comparison in the C family of languages operates deterministically. Clearly, if nothing else, a programming language must be capable of determining whether two integers are equal or not!
 
-And other times, the quest leaves one more confused than before, knowing even less. This is an example of the latter.
+I've since been disabused of that notion. There is an entire quest for knowledge that brought me here; however, this was one of the cases where the quest left me more confused than before, knowing even less than I used to.
 
 And it all started from one small, seemingly-innocent question, namely the following:
 
