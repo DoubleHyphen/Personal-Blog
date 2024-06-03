@@ -2,7 +2,7 @@
 
 I used to think that integer comparison in the C family of languages operates deterministically. Clearly, if nothing else, a programming language must be capable of determining whether two integers are equal or not!
 
-I've since been disabused of that notion. There is an entire quest for knowledge that brought me here; however, this was one of the cases where the quest left me more confused than before, knowing even less than I used to.
+I've since been disabused of that notion. My experiments have led me to discover that neither C, nor C++, nor Rust can force their equality operator to function deterministically. There is an entire quest for knowledge that brought me here! Under other circumstances, this quest might have helped me gain new knowledge; however, this was one of the cases where the quest left me more confused than before, knowing even less than I used to.
 
 And it all started from one small, seemingly-innocent question, namely the following:
 
