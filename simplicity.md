@@ -115,7 +115,7 @@ Unless a data-type explicitly supports interior mutability –like atomics do, f
 
 The borrow checker is rightly considered to be one of Rust's more complicated subjects, no objections there. In fact, if all we care about heap-allocated data, all it does is complicate things! Yes, it saves memory, but that's not what this article is about: if you want simplicity, just copy everything. This, however, assumes that everything _can_ be copied—and that's only true inasmuch as heap-allocated data are concerned.
 
-However: as soon as we move beyond those, and get into things like handles for files or threads or servers, copying is a liability, not an asset. Reading a file requires us to be certain that nobody else is currently writing in it. With that in mind, the borrow checker unlocks a _serious_ super-power: _Any reference to any of those things is compiler-guaranteed to find the underlying object in a useable state._ The amount of complexity this eliminates cannot be overstated. For instance, let's translate the channel example above into Rust:
+As soon as we move beyond those, and get into things like handles for files or threads or servers, copying is a liability, not an asset. Reading a file requires us to be certain that nobody else is currently writing in it. With that in mind, the borrow checker unlocks a _serious_ super-power: _Any reference to any of those things is compiler-guaranteed to find the underlying object in a useable state._ The amount of complexity this eliminates cannot be overstated. For instance, let's translate the channel example above into Rust:
 
 ```rust
 fn transmit(from: Receiver<i32>, to: Sender<i32>) {
