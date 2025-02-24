@@ -148,7 +148,7 @@ The blogs, writers, phrasings, and sometimes even topics can differ. But over an
 
 I believe that it is utterly pointless to try to categorise programming languages based on their complexity, unless one clarifies which type of complexity one refers to. I have chosen to categorise complexity in three groups –incidental, intrusive, inherent– as follows:
 
-* **Incidental complexity** is the complexity that arises when something should be abstracted away, but isn't, thereby spilling its implementation details outside for no reason. This is important to mitigate, but also a solved problem since decades.
+* **Incidental complexity** is the complexity that arises when something should be abstracted away, but isn't, thereby spilling its implementation details outside for no reason. This is important to mitigate, but also a solved problem since decades ago.
 * **Intrusive complexity** is the complexity that arises when something important that should have been taken into account (say, an error condition) cannot be easily taken into account, plunging the program in an indeterminate state.
 * **Inherent complexity** is the complexity that arises due to intrinsic specific properties of the tool we are trying to use, or the problem we are trying to solve.
 
