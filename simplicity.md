@@ -5,7 +5,7 @@
 
 One of the criticisms that's frequently levelled against Rust –not unfairly, might I add– is that it's a complex language. It has lots of syntax, it has weird macros, it makes you clone everything when you just want to get the damn thing to work. All of those are admittedly true.
 
-So why do so many people love it? Why has it been elected most-loved language in the Stack Overflow polls for (as of this writing) eight years in a row? Are we all systems engineers? Are we all gluttons for punishment? But I am repeating myself.
+So why do so many people love it? Why has it been elected most-loved language in the Stack Overflow polls for (as of this writing) eight years in a row? Are we all systems engineers? Are we all gluttons for punishment? But I repeat myself.
 
 In particular: if there was a simpler language that could achieve the same goals, why wouldn't we prefer that? C, for instance, is ostensibly a much simpler language than Rust. Why does C's simplicity not yield the same results as Rust's complexity?
 
