@@ -52,7 +52,7 @@ Having established that simplicity of programming is much more important than si
 So, let's take a Go function that takes two channels as arguments. It then receives a value from the former and transmits it the latter:
 
 ```go
-func transmit(from chan int32, to chan int32) {
+func tranceive (from chan int32, to chan int32) {
 	val := <-from
 	to <- val
 	fmt.Println("Value transmitted: ", val)
@@ -120,7 +120,7 @@ The borrow checker is rightly considered to be one of Rust's more complicated su
 This, however, assumes that everything _can_ be copied—and that's only true inasmuch as heap-allocated data are concerned. As soon as we move beyond those, and get into things like handles for files or threads or servers, copying becomes a liability, not an asset.  Copying atomics renders them meaningless, and copying thread handles is a recipe for disaster. With that in mind, the borrow checker unlocks a _serious_ super-power: _Any reference to any of those things is compiler-guaranteed to find the underlying object in a useable state._ The amount of complexity this eliminates cannot be overstated. For instance, let's translate the channel example above into Rust:
 
 ```rust
-fn transmit(from: Receiver<i32>, to: Sender<i32>) {
+fn tranceive (from: Receiver<i32>, to: Sender<i32>) {
     let value = from.recv().expect("Receiver appears to have hung up!");
     to.send(value).expect("Sender appears to have hung up!");
     println!("Value transmitted: {value}");
