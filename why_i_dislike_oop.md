@@ -139,6 +139,7 @@ There's no need to read all this line by line. The important points here are as 
 This is more-or-less it. Let's examine the merits and demerits.
 Merits:
 * Very accurate modelling of the problem
+
 Demerits:
 * Highly unintuitive to write
 * The concept of “parallelogram” is modelled twice in the code, with subtle differences
