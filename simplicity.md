@@ -50,7 +50,9 @@ A compiler will compile orders of magnitude more code than what comprises it: th
 
 ## Intrusive complexity
 
-Having established that simplicity of programming is much more important than simplicity of implementation, we can proceed in our quest to seek a very simple language. Any self-respecting language permits abstraction of this sort, so we're thankfully spoilt for choice. For the purposes of this article, we shall select Python and Go as representative examples: Python is essentially executable pseudocode, and Go's entire design philosophy revolves around simplicity.
+Having established that simplicity of programming is much more important than simplicity of implementation, we can proceed in our quest to seek a very simple language. Any self-respecting language permits abstraction of this sort[^¹]., so we're thankfully spoilt for choice. For the purposes of this article, we shall select Python and Go as representative examples: Python is essentially executable pseudocode, and Go's entire design philosophy revolves around simplicity.
+
+[^¹]: Admittedly, GPGPU languages –such as OpenCL or CUDA– don't seem to have got that memo.
 
 So, let's take a Go function that takes two channels as arguments. It then receives a value from the former and transmits it the latter:
 
