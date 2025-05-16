@@ -4,7 +4,7 @@
 
 What does a programmer think about while programming?
 
-The question might sound simple: “About the program, duh!” is a very possible glib, yet very accurate, response. But it is completely insufficient for our purposes. After all, a program is primarily a means of communication: its entire purpose is to bridge, as well as possible, the gap between what humans can express and what computers can understand. It must be understandable by the programmer's current as well as future self, possible collaborators or colleagues, and of course by the machine. All software has a recipient—if it did not, we wouldn't need software, just a blackboard and chalk.
+The question might sound simple: “About the program, duh!” is a possible glib, yet very accurate, response. But it is completely insufficient for our purposes. After all, a program is primarily a means of communication: its entire purpose is to bridge, as well as possible, the gap between what humans can express and what computers can understand. It must be understandable by the programmer's current as well as future self, possible collaborators or colleagues, and of course by the machine. All software has a recipient—if it did not, we wouldn't need software, just a blackboard and chalk.
 
 In this article I'll present a few quotes I've read, which initially made absolutely no sense to me. There does exist a theory, however, that handily explains all of them, and ties into the question we posed at the beginning.
 
