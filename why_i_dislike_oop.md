@@ -140,6 +140,7 @@ This is more-or-less it. Let's examine the merits and demerits.
 
 Merits:
 * Very accurate modelling of the problem
+* State is never wasted
 
 Demerits:
 * Highly unintuitive to write
