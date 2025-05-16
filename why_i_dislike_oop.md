@@ -137,6 +137,7 @@ There's no need to read all this line by line. The important points here are as 
 5. Not _all_ possible states here are valid. Sides can have upper or lower limits, lengths must be positive, floats must be finite. Those will have to be maintained using sanity checks in the constructor. That said, the degrees of freedom are exactly the ones we want.
 
 This is more-or-less it. Let's examine the merits and demerits.
+
 Merits:
 * Very accurate modelling of the problem
 
