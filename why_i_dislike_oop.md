@@ -143,10 +143,13 @@ Merits:
 
 Demerits:
 * Highly unintuitive to write
+* The differentiæ are not explicit in the code
 * The concept of “parallelogram” is modelled twice in the code, with subtle differences
 * Fairly verbose and repetitive (just the `From` implementations take a fair bit of code)
 
-And now, the contrast with tradOOP.
+Ho hum. One merit, four demerits. Not ideal at all.
+
+Can tradOOP do better?
 
 
 ## Subcategories in tradOOP
@@ -200,6 +203,8 @@ The most natural way to think of a subcategory is as something that has the foll
 2. It needs strictly less state to be described, compared to its super-category.
 
 Traditional OOP, by using inheritance to achieve the former part, automatically defenestrates the latter. It is exactly this weakness of tradOOP which IMHO makes it lose to Rust in its own turf. Yes, it was a step in the right direction by virtue of _permitting_ those relationships in the first place; but its downfall was in _conflating_ them.
+
+And to think: Rust does not really do a great job at modelling those properties either! But, unlike tradOOP, at the very least it can model them both at the same time.
 
 
 ## Postscript
