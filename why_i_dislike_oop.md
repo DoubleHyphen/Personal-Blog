@@ -177,7 +177,8 @@ class Rectangle: Parallelogram {
 };
 ```
 …uh-oh.
-Just like that, we encounter the insurmountable problem.
+
+Just like that, we encounter an insurmountable problem.
 
 ### Inheritance bestows state
 Said problem is as follows: If we denote `Rectangle` to be a subcategory of `Parallelogram` via inheritance, we automatically bestow to it all the state that the latter already has. This, however, goes directly against the entire concept of the _genus and differentia_, which we mentioned earlier.
