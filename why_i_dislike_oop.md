@@ -50,7 +50,7 @@ So, let's explore how this whole thing could be expressed in Rust! The first thi
 1. One could choose, for the Y, not a noun but an adjective: in Rust terms, not a concrete type but a trait. Big advantage: We can identify common behaviour between types, thereby grouping types together by the behaviour they exhibit. Big disadvantage: We can no longer say “let there be a Y called `foo`”, because traits cannot be used to instantiate variables.
 2. The other option, if Y is a noun, is to implement the `From` trait. This is a way to tell the language how to _transform_ an X _into_ a Y, which in turn lets us use it in place of a Y. Big advantage: We can have concrete instances of both Xs and Ys. Big disadvantage: Once we change the type of something, its previous type gets lost, and thenceforth we can _only_ use it as a Y.
 
-Of course, nothing prevents us from using both of those approaches at the same time! We do exactly this in the code below: There exists a `Parallelogram` data-type, which represents a generic parallelogram; there also exists an `IsPgram` trait, which represents the behaviours common to all of subcategories of parallelograms.
+Of course, nothing prevents us from using both of those approaches at the same time! We do exactly this in the code below: There exists a `Parallelogram` data-type, which represents a generic parallelogram; there also exists an `IsPgram` trait, which represents the behaviours common to all subcategories of parallelograms.
 
 The code is as follows. The most important points follow immediately after.
 
