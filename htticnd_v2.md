@@ -16,7 +16,7 @@ Many years later, I chanced upon the blogs of Ralf Jung and Gankra. “Nay!” s
 
 At first I didn't pay much heed to this. But slowly, a question started brewing inside my mind: “What does Rust do in ordinary architectures, anyway?”. Finally, “just as a quick experiment just before bed”, I wrote a program that examined just that.
 
-### Cool Bear's Cousin's Ominous Narration:
+#### Cool Bear's Cousin's Ominous Narration:
 It would **not** be a quick experiment.
 
 
