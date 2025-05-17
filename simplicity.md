@@ -43,7 +43,7 @@ The answer is of course a resounding **no**, for one simple reason: while _each 
 
 This snippet was chosen for its complexity, yes, but it serves to highlight a specific _kind_ of complexity. The thing we care about should work fairly simply, has no real reason to _not_ work fairly simply, but the language won't let us hide the implementation details behind a decent abstraction. This kind of complexity shall be referred to herein as **“incidental complexity”**, because there's no real reason for it.
 
-A compiler will compile orders of magnitude more code than what comprises it[^¹]: therefore, a more complex compiler that results in simpler code will lead to a huge reduction in complexity overall.
+A compiler will compile orders of magnitude more code than what comprises it[^¹]. Therefore, a more complex compiler that results in simpler code will lead to a huge reduction in complexity overall.
 
 [¹]: Small rant: this is why I personally never understood the argument that “one of C's strong points is that you can write a standards-compliant compiler in a few thousand lines of code”. Well, Brainfuck takes one-hundredth that; why should I even care? Would such a compiler even be materially more useful than Brainfuck's? I mean, I get that new architectures are a thing that exists but, even then, would the generated code be useful without the robust optimisations that a mature compiler like `clang` or `gcc` would perform?
 
