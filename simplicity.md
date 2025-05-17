@@ -43,16 +43,16 @@ The answer is of course a resounding **no**, for one simple reason: while _each 
 
 This snippet was chosen for its complexity, yes, but it serves to highlight a specific _kind_ of complexity. The thing we care about should work fairly simply, has no real reason to _not_ work fairly simply, but the language won't let us hide the implementation details behind a decent abstraction. This kind of complexity shall be referred to herein as **“incidental complexity”**, because there's no real reason for it.
 
-A compiler will compile orders of magnitude more code than what comprises it: therefore, a more complex compiler that results in simpler code will lead to a huge reduction in complexity overall.
+A compiler will compile orders of magnitude more code than what comprises it[^¹]: therefore, a more complex compiler that results in simpler code will lead to a huge reduction in complexity overall.
 
-(Small rant: this is why I personally never understood the argument that “one of C's strong points is that you can write a standards-compliant compiler in a few thousand lines of code”. Well, Brainfuck takes one-hundredth that; why should I even care? Would such a compiler even be materially more useful than Brainfuck's? I mean, I get that new architectures are a thing that exists but, even then, would the generated code be useful without the robust optimisations that a mature compiler like `clang` or `gcc` would perform?)
+[¹]: Small rant: this is why I personally never understood the argument that “one of C's strong points is that you can write a standards-compliant compiler in a few thousand lines of code”. Well, Brainfuck takes one-hundredth that; why should I even care? Would such a compiler even be materially more useful than Brainfuck's? I mean, I get that new architectures are a thing that exists but, even then, would the generated code be useful without the robust optimisations that a mature compiler like `clang` or `gcc` would perform?
 
 
 ## Intrusive complexity
 
-Having established that simplicity of programming is much more important than simplicity of implementation, we can proceed in our quest to seek a very simple language. Any self-respecting language permits abstraction of this sort[^¹]., so we're thankfully spoilt for choice. For the purposes of this article, we shall select Python and Go as representative examples: Python is essentially executable pseudocode, and Go's entire design philosophy revolves around simplicity.
+Having established that simplicity of programming is much more important than simplicity of implementation, we can proceed in our quest to seek a very simple language. Any self-respecting language permits abstraction of this sort[^²]., so we're thankfully spoilt for choice. For the purposes of this article, we shall select Python and Go as representative examples: Python is essentially executable pseudocode, and Go's entire design philosophy revolves around simplicity.
 
-[^¹]: Admittedly, GPGPU languages –such as OpenCL or CUDA– don't seem to have got that memo.
+[^²]: Admittedly, GPGPU languages –such as OpenCL or CUDA– don't seem to have got that memo.
 
 So, let's take a Go function that takes two channels as arguments. It then receives a value from the former and transmits it the latter:
 
