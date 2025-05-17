@@ -255,10 +255,9 @@ This is, in my humble opinion, a disappointing duplication of concerns. Two data
 The most natural way to think of a subcategory is as something that has the following two properties:
 1. It can be used (“substituted”) wherever its super-category can
 2. It needs strictly less state to be described, compared to its super-category.
+3. It has some behaviour in common with its super-category, though not necessarily all of it.
 
-Traditional OOP, by using inheritance to achieve the former part, automatically defenestrates the latter. It is exactly this weakness of tradOOP which IMHO makes it lose to Rust in its own turf. Yes, it was a step in the right direction by virtue of _permitting_ those relationships in the first place; but its downfall was in _conflating_ them.
-
-And to think: Rust does not really do a great job at modelling those properties either! But, unlike tradOOP, at the very least it can model them both at the same time.
+Traditional OOP, by using inheritance to achieve the former part, automatically defenestrates the other two. It is exactly this weakness of tradOOP which IMHO makes it lose to Rust in its own turf. And to think: Rust does not really do a great job at modelling those properties either! But, unlike tradOOP, at the very least it can model them all at the same time.
 
 
 ## Postscript
