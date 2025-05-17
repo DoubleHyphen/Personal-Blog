@@ -224,7 +224,7 @@ But fine, whatever. Let's say we don't care about wasting state. Let's keep goin
 ```cpp
 class Rectangle: Parallelogram {
     private:
-    // Nothing here
+    // Nothing here, we already have more state than we need.
     public:
         Parallelogram set_primary_angle (float prim_ang) {...}
         Rectangle set_primary_side (float prim_sid) {...}
@@ -238,7 +238,7 @@ class Rectangle: Parallelogram {
 And just like that, we encounter the _second_ insurmountable problem.
 
 ### Behaviour can never be constrained
-In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing variable) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for specific data-types,_ because they're not common to all of them.
+In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing variable) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for specific data-types,_ because they're not common to all of them!
 
 The C++ example above has no way to declare this. As soon as we create a subcategory of a `Parallelogram`, it _has to_ have at least the same behaviour as the `Parallelogram`, including the `in_place` methods. With the `side` one there is no problem, but the `angle` one _has to_ make a `Rectangle` change its angle, in-place, while remaining a `Rectangle`. Which is the opposite of what we want.
 
