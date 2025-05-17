@@ -100,6 +100,15 @@ impl IsPgram for Parallelogram {
     fn set_primary_side(self, length: Length) -> Self {...}
 }
 
+impl Parallelogram {
+    fn set_primary_angle_in_place(&mut self, angle: Angle) {
+        self = self.set_primary_angle(angle);
+    }
+    fn set_primary_side_in_place(&mut self, length: Length) {
+        self = self.set_primary_side(length);
+    }
+}
+
 impl IsPgram for Rectangle {
     fn set_primary_angle(self, angle: Angle) -> Parallelogram {
         self.into::<Parallelogram>().set_primary_angle(angle)
@@ -135,7 +144,8 @@ There's no need to read all this line by line. The important points here are as 
 2. Each data-type is represented using exactly the state it needs in order to be uniquely represented, no more and no less. Parallelograms need 6 numbers, rectangles and rhombuses need 5, and squares need 4.
 3. Each member function can, and does, denote the invariants it does and does not maintain. A rhombus can change its primary angle without changing its data-type; not so a rectangle. This goes vice-versa for changing the primary side.
 4. Some member functions can be implemented by changing the data-type, then deferring to an already-existing implementation.
-5. Not _all_ possible states here are valid. Sides can have upper or lower limits, lengths must be positive, floats must be finite. Those will have to be maintained using sanity checks in the constructor. That said, the degrees of freedom are exactly the ones we want.
+5. Because parallelograms can change their angle or side without changing their data-type, we have also included `in_place` versions of the same methods, that merely change an already-existing `Parallelogram` instead of creating a new one. We could've done easily done like-wise for rhombuses and their angles, or rectangles and their sides, but this code is long enough as it is.
+6. Not _all_ possible states here are valid. Sides can have upper or lower limits, lengths must be positive, floats must be finite. Those will have to be maintained using sanity checks in the constructor. That said, the degrees of freedom are exactly the ones we want.
 
 This is more-or-less it. Let's examine the merits and demerits.
 
@@ -170,8 +180,10 @@ class Parallelogram {
         Point centre;
         Point primary_point;
     public:
-        void set_primary_angle(float prim_ang) {...}
-        void set_primary_side(float prim_sid) {...}
+        Parallelogram set_primary_angle (float prim_ang) {...}
+        Parallelogram set_primary_side (float prim_sid) {...}
+        void set_primary_angle_in_place (float prim_ang) {...}
+        void set_primary_side_in_place (float prim_sid) {...}
 };
 
 ```
@@ -186,7 +198,7 @@ class Rectangle: Parallelogram {
 ```
 …uh-oh.
 
-Just like that, we encounter an insurmountable problem.
+Just like that, we encounter the first insurmountable problem.
 
 ### Inheritance bestows state
 Said problem is as follows: If we denote `Rectangle` to be a subcategory of `Parallelogram` via inheritance, we automatically bestow to it all the state that the latter already has. This, however, goes directly against the entire concept of the _genus and differentia_, which we mentioned earlier.
@@ -195,7 +207,30 @@ Think of it this way: the entire job of the differentia is to take a genus and c
 
 If we want to constrain the possible states, we have to go the other way, and denote `Parallelogram` to be a subcategory of `Rectangle`. This solves some problems but creates 10× as many, because now we can use any random `Parallelogram` wherever a `Rectangle` is expected.
 
-### Composition also bestows state
+But fine, whatever. Let's say we don't care about wasting state. Let's keep going and see how to implement the methods:
+
+```cpp
+class Rectangle: Parallelogram {
+    private:
+    // Nothing here
+    public:
+        Parallelogram set_primary_angle (float prim_ang) {...}
+        Rectangle set_primary_side (float prim_sid) {...}
+        void set_primary_side_in_place (float prim_sid) {...}
+        void set_primary_angle_in_place (float prim_ang) {
+            // SUNNUVA---
+        }
+};
+```
+
+And just like that, we encounter the _second_ insurmountable problem.
+
+### Behaviour can never be constrained
+In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing `Parallelogram`) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for the concrete `Parallelogram` data-types,_ because in general they can't also be used for their subcategories.
+
+The C++ example above has no way to declare this. As soon as we create a subcategory of a `Parallelogram`, it _has to_ have at least the same behaviour as the `Parallelogram`, including the `in_place` methods that might as easily have no meaning.
+
+### Composition _also_ bestows state
 A common piece of advice for tradOOP languages is to favour “Composition over inheritance”. Briefly put, this says that when we want to ensure that `X` has at least as much state as `Y`, we ought to do that by just including a `Y` as a member of each `X`, not by writing `class X: Y`.
 
 This is, in my humble opinion, a disappointing duplication of concerns. Two data-types with the same _behaviour_ have no reason to have the same _state_; indeed, as we showed earlier, the most natural way to describe things is the exact opposite. We are told to favour one over the other, when _they should never have stepped on each other's toes in the first place._
