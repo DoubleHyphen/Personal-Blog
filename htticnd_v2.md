@@ -102,7 +102,7 @@ I guess it's now time to explain how this came to pass.
 
 Before we do that, however, a word of warning: If you're looking for a good ending, you won't find it here. As of the time of this writing, no workable back-end solution has been found. A programmer can side-step the issue by using `black_box(a)` instead of `a`, and that's about as good as it gets.
 
-And now, the explanation. The tl;dr is “The sins of the parents are visited unto the children”; and the parent most pertinent here is C. C is the oldest still-widely-used language that gave its users pointers from the get-go[^²]. However, compared to other languages, it sometimes feels that pointers are _all you have_ in C. As a result,
+And now, the explanation. The tl;dr is “The sins of the parents are visited unto the children”; and the parent most pertinent here is C. C is the oldest still-widely-used language that gave its users pointers from the get-go[^²]. However, it is designed around pointers to such an extent that, especially compared to other languages, it sometimes feels that pointers are _all you have_ in C. As a result,
 
 
 ## When all you have is a pointer…
