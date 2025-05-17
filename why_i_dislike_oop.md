@@ -252,7 +252,7 @@ This is, in my humble opinion, a disappointing duplication of concerns. Two data
 
 ## Summary and conclusion
 
-The most natural way to think of a subcategory is as something that has the following two properties:
+The most natural way to think of a subcategory is as something that has the following three properties:
 1. It can be used (“substituted”) wherever its super-category can
 2. It needs strictly less state to be described, compared to its super-category.
 3. It has some behaviour in common with its super-category, though not necessarily all of it.
