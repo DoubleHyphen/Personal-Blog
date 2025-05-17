@@ -38,6 +38,7 @@ With all this in mind, let us examine how subcategories and substitutability (he
 To illustrate Rust's capabilities in subtyping, we will be using a simple hierarchy of geometric shapes. We shall structure it as follows:
 
 * A parallelogram will be represented by three points: Two of its consecutive vertices, plus its centre.
+* A parallelogram can be created by taking a preëxisting parallelogram and changing its angle or side.
 * A rectangle is a parallelogram whose angles are all equal.
 * A rhombus is a parallelogram whose sides are all equal.
 * A square is a rhombus and rectangle at the same time.
