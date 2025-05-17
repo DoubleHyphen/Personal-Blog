@@ -162,9 +162,12 @@ Let's translate the above example to old-style C++, as a representative example.
 ```cpp
 class Parallelogram {
     private:
-        float anchor_point;
-        float centre;
-        float primary_point;
+        float anchor_point_x;
+        float anchor_point_y;
+        float centre_x;
+        float centre_y;
+        float primary_point_x;
+        float primary_point_y;
     public:
         void set_primary_angle(float prim_ang) {...}
         void set_primary_side(float prim_sid) {...}
