@@ -235,7 +235,7 @@ class Rectangle: Parallelogram {
 };
 ```
 
-And just like that, we encounter the _second_ insurmountable problem.
+Just four methods after that, we encounter the _second_ insurmountable problem.
 
 ### Behaviour can never be constrained
 In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing variable) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for specific data-types,_ because they're not common to all of them!
