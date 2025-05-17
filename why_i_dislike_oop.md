@@ -159,16 +159,16 @@ Can tradOOP do better?
 Subcategories in tradOOP are so tightly connected with inheritance as to be basically synonymous. Briefly: when an X is declared to be a Y, it inherits all its state and behaviour. After that, it can expand either or both of those things as it sees fit.
 
 Let's translate the above example to old-style C++, as a representative example. I am purposefully avoiding modern C++ idioms, because as mentioned above I am aiming to write about tradOOP specifically.
-
 ```cpp
+class Point {
+    float x;
+    float y;
+};
 class Parallelogram {
     private:
-        float anchor_point_x;
-        float anchor_point_y;
-        float centre_x;
-        float centre_y;
-        float primary_point_x;
-        float primary_point_y;
+        Point anchor_point;
+        Point centre;
+        Point primary_point;
     public:
         void set_primary_angle(float prim_ang) {...}
         void set_primary_side(float prim_sid) {...}
