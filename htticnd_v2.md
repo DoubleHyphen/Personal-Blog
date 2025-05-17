@@ -17,7 +17,7 @@ Many years later, I chanced upon the blogs of Ralf Jung and Gankra. “Nay!” s
 At first I didn't pay much heed to this. But slowly, a question started brewing inside my mind: “What does Rust do in ordinary architectures, anyway?”. Finally, “just as a quick experiment just before bed”, I wrote a program that examined just that.
 
 #### Cool Bear's Cousin's Ominous Narration:
-It would **not** be a quick experiment.
+It would _**not**_ be a quick experiment.
 
 
 ## On to the experiment!
@@ -161,7 +161,7 @@ Rust's answer to the afore-mentioned problems is to give the programmer several 
 [^⁸]: Technically, there are two possible ways why this might not be dereferenceable: It could be `None`, or it could contain an empty slice. Focusing on that would have muddled the point, however.
 
 
-### Cool Bear's Cousin's Hot Tip:
+#### Cool Bear's Cousin's Hot Tip:
 In safe Rust, not all those questions are orthogonal. To wit:
 * Most of the time, if something can be written to, it can also be read from. `MaybeUninit` is quite possibly the only exception.
 * Nothing can *ever* be deallocated if there are still other dereferenceable pointers that point to it. 
@@ -176,7 +176,7 @@ As it just so happens, even LLVM agrees that the answers to those questions are 
 
 The last question, as it turns out, is important enough that even C has the vocabulary to express it: it's called `restrict` in C and `noalias` in LLVM. Of course, in practice, `restrict` was so rarely used in C that that it took the Rust team *several* roll-backs to fully stabilise all available uses of `noalias` in LLVM, and only in 1.54 was it stabilised for good. I mean, hopefully? I hope I won't jinx it.
 
-### Cool Bear's Cousin's Snarky Observations:
+#### Cool Bear's Cousin's Snarky Observations:
 * Yes, that means that `noalias` was broken for _fourteen years_, six of them demonstrably so[^³]. Hush, this is not important right now.
 * And yes, it _is_ comical that LLVM is more expressive than C in this sense, thank you for asking.
 
