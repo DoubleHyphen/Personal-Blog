@@ -250,6 +250,6 @@ This program produces the exact same behaviour, in both GCC and Clang, with both
 
 Now, we shake our heads in impotent disappointment, and twiddle our thumbs in wait.
 
-I previously made the prediction that we will see a Rust-side work-around long before we see an backend-side solution. However, it's been nearly a year and a half since this was discovered, and nothing has been done yet on either side. Thus, neither appears feasible currently, so we have no choice but to wait and see.
+I previously made the prediction that we will see a Rust-side work-around long before we see an backend-side solution. However, it's been more than two years since this was discovered, and nothing has been done yet on either side. Thus, neither appears feasible currently, so we have no choice but to wait and see.
 
 [^²]: FORTRAN and COBOL are older, but got pointers _much_ later than C. PL/I, ALGOL, Pascal and BASIC did have pointers from the get-go, but are no longer in wide use.
