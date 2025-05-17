@@ -148,7 +148,7 @@ Demerits:
 * The concept of “parallelogram” is modelled twice in the code, with subtle differences
 * Fairly verbose and repetitive (just the `From` implementations take a fair bit of code)
 
-Ho hum. Two merit, four demerits. Not horrible, but definitely not great.
+Ho hum. Two merits, four demerits. Not horrible, but definitely not great.
 
 Can tradOOP do better?
 
