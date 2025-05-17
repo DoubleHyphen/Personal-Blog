@@ -116,10 +116,22 @@ impl IsPgram for Rectangle {
     fn set_primary_side(self, length: Length) -> Self {...}
 }
 
+impl Rectangle {
+    fn set_primary_side_in_place(&mut self, length: Length) {
+        self = self.set_primary_side(length);
+    }
+}
+
 impl IsPgram for Rhombus {
     fn set_primary_angle(self, angle: Angle) -> Self {...}
     fn set_primary_side(self, length: Length) -> Parallelogram {
         self.into::<Parallelogram>().set_primary_side(length)
+    }
+}
+
+impl Rhombus {
+    fn set_primary_angle_in_place(&mut self, angle: Angle) {
+        self = self.set_primary_angle(angle);
     }
 }
 
@@ -144,7 +156,7 @@ There's no need to read all this line by line. The important points here are as 
 2. Each data-type is represented using exactly the state it needs in order to be uniquely represented, no more and no less. Parallelograms need 6 numbers, rectangles and rhombuses need 5, and squares need 4.
 3. Each member function can, and does, denote the invariants it does and does not maintain. A rhombus can change its primary angle without changing its data-type; not so a rectangle. This goes vice-versa for changing the primary side.
 4. Some member functions can be implemented by changing the data-type, then deferring to an already-existing implementation.
-5. Because parallelograms can change their angle or side without changing their data-type, we have also included `in_place` versions of the same methods, that merely change an already-existing `Parallelogram` instead of creating a new one. We could've done easily done like-wise for rhombuses and their angles, or rectangles and their sides, but this code is long enough as it is. Important to note: because those cannot be used generally, they're not part of the trait, just methods of the concrete data-type.
+5. Whenever a parallelogram can change its angle or side without changing its data-type, we also include `in_place` versions of the same methods, that merely change the already-existing variable instead of creating a new one. Important to note: those are not part of the trait, because those are not common to all parallelograms! Instead, they're implemented for each concrete data-type as needed.
 6. Not _all_ possible states here are valid. Sides can have upper or lower limits, lengths must be positive, floats must be finite. Those will have to be maintained using sanity checks in the constructor. That said, the degrees of freedom are exactly the ones we want.
 
 This is more-or-less it. Let's examine the merits and demerits.
@@ -226,9 +238,11 @@ class Rectangle: Parallelogram {
 And just like that, we encounter the _second_ insurmountable problem.
 
 ### Behaviour can never be constrained
-In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing `Parallelogram`) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for the concrete `Parallelogram` data-types,_ because in general they can't also be used for their subcategories.
+In the Rust example earlier, we had both `in_place` versions of the methods (which merely modified an already-existing variable) and ordinary methods, which created a new copy. The important thing to note is this: The `in_place` methods _only existed for specific data-types,_ because they're not common to all of them.
 
-The C++ example above has no way to declare this. As soon as we create a subcategory of a `Parallelogram`, it _has to_ have at least the same behaviour as the `Parallelogram`, including the `in_place` methods that might as easily have no meaning.
+The C++ example above has no way to declare this. As soon as we create a subcategory of a `Parallelogram`, it _has to_ have at least the same behaviour as the `Parallelogram`, including the `in_place` methods. With the `side` one there is no problem, but the `angle` one _has to_ make a `Rectangle` change its angle, in-place, while remaining a `Rectangle`. Which is the opposite of what we want.
+
+There is a third problem, more minor but still noteworthy.
 
 ### Composition _also_ bestows state
 A common piece of advice for tradOOP languages is to favour “Composition over inheritance”. Briefly put, this says that when we want to ensure that `X` has at least as much state as `Y`, we ought to do that by just including a `Y` as a member of each `X`, not by writing `class X: Y`.
