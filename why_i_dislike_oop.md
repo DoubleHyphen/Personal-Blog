@@ -64,15 +64,15 @@ type Angle = f32;
 type Point = nalgebra::Point2::<Length>;
 
 pub struct Parallelogram {
-    anchor_point: Point,
-    centre: Point,
     primary_point: Point,
+    centre: Point,
+    secondary_point: Point,
 }
 
 pub struct Rectangle {
     // NOTE: To ensure uniqueness, all points and 
     // sides will be examined clock-wise.
-    anchor_point: Point,
+    primary_point: Point,
     centre: Point,
     primary_side: Length,
 }
@@ -80,13 +80,13 @@ pub struct Rectangle {
 pub struct Rhombus {
     // NOTE: To ensure uniqueness, all points and 
     // sides will be examined clock-wise.
-    anchor_point: Point,
+    primary_point: Point,
     centre: Point,
     primary_side: Length,
 }
 
 pub struct Square {
-    anchor_point: Point,
+    primary_point: Point,
     centre: Point,
 }
 
