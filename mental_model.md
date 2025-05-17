@@ -52,11 +52,11 @@ which… OK, completely fair. But then the writer warned: "Don't use unreadable 
 I could only scoff at this. What sort of remotely competent programmer doesn't know what binary operations are? They're even more fundamental than addition, for crying out loud. If you thought this was unreadable, wait until you see branchless GPU programming[^¹]!
 
 [^¹]: Just for fun, the equivalent branchless GPU code would be something like 
-```c
-uint32_t mask = 0 - (prev_step >> 31);
-next_step = ((prev_step ^ mask) - mask) << 2;
-```
-assuming that `prev_step` is a 32-bit integer. How's _that_ for unreadable?
+    ```c
+    uint32_t mask = 0 - (prev_step >> 31);
+    next_step = ((prev_step ^ mask) - mask) << 2;
+    ```
+    assuming that `prev_step` is a 32-bit integer. How's _that_ for unreadable?
 
 
 ## The moment of epiphany
