@@ -190,7 +190,7 @@ Just like that, we encounter an insurmountable problem.
 ### Inheritance bestows state
 Said problem is as follows: If we denote `Rectangle` to be a subcategory of `Parallelogram` via inheritance, we automatically bestow to it all the state that the latter already has. This, however, goes directly against the entire concept of the _genus and differentia_, which we mentioned earlier.
 
-Think of it this way: the entire job of the differentia is to take a genus and constrain its possible members. Thus, if the possible members have been constricted, their representation ought to need _strictly less_ state than the representation of the genus. Inheritance disagrees, and decides that their representation will need _weakly more_ state than the representation of the genus. Which is, even in the absolute best case, a complete waste of resources.
+Think of it this way: the entire job of the differentia is to take a genus and constrain its possible members. Thus, if the possible members have been constrained, their representation ought to need _strictly less_ state than the representation of the genus. Inheritance disagrees, and decides that their representation will need _weakly more_ state than the representation of the genus. Which is, even in the absolute best case, a complete waste of resources.
 
 If we want to constrain the possible states, we have to go the other way, and denote `Parallelogram` to be a subcategory of `Rectangle`. This solves some problems but creates 10× as many, because now we can use any random `Parallelogram` wherever a `Rectangle` is expected.
 
