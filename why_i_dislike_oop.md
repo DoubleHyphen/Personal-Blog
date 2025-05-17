@@ -156,7 +156,7 @@ There's no need to read all this line by line. The important points here are as 
 2. Each data-type is represented using exactly the state it needs in order to be uniquely represented, no more and no less. Parallelograms need 6 numbers, rectangles and rhombuses need 5, and squares need 4.
 3. Each member function can, and does, denote the invariants it does and does not maintain. A rhombus can change its primary angle without changing its data-type; not so a rectangle. This goes vice-versa for changing the primary side.
 4. Some member functions can be implemented by changing the data-type, then deferring to an already-existing implementation.
-5. Whenever a parallelogram can change its angle or side without changing its data-type, we also include `in_place` versions of the same methods, that merely change the already-existing variable instead of creating a new one. Important to note: those are not part of the trait, because those are not common to all parallelograms! Instead, they're implemented for each concrete data-type as needed.
+5. Common behaviour is described in the trait, unique behaviour is described separately in each concrete data-type.
 6. Not _all_ possible states here are valid. Sides can have upper or lower limits, lengths must be positive, floats must be finite. Those will have to be maintained using sanity checks in the constructor. That said, the degrees of freedom are exactly the ones we want.
 
 This is more-or-less it. Let's examine the merits and demerits.
