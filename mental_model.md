@@ -50,6 +50,7 @@ next_step = Math.abs(prev_step) * 4;
 which… OK, completely fair. But then the writer warned: "Don't use unreadable things such as binary operations!”
 
 I could only scoff at this. What sort of remotely competent programmer doesn't know what binary operations are? They're even more fundamental than addition, for crying out loud. If you thought this was unreadable, wait until you see branchless GPU programming[^¹]!
+
 [^¹] Just for fun, the equivalent branchless GPU code would be something like 
 ```c
 sign = prev_step >> 31;
