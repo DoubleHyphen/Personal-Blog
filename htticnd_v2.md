@@ -1,5 +1,6 @@
 # How to turn integer comparison non-deterministic
 
+## Introduction
 I used to think that integer comparison in the C family of languages operates deterministically. Clearly, if nothing else, a programming language must be capable of determining whether two integers are equal or not!
 
 I've since been disabused of that notion. My experiments have led me to discover that neither C, nor C++, nor Rust can force their equality operator to function deterministically. There is an entire quest for knowledge that brought me here! Under other circumstances, this quest might have helped me gain new knowledge; however, this was one of the cases where the quest left me more confused than before, knowing even less than I used to.
@@ -7,7 +8,7 @@ I've since been disabused of that notion. My experiments have led me to discover
 And it all started from one small, seemingly-innocent question, namely the following:
 
 
-# What is a pointer?
+## What is a pointer?
 
 In university, I was taught C and C++. I of course had to know what a pointer is in order to pass, and so it was explained to me: It is merely an address in the computer's memory, that knows what it's supposed to find there. By dereferencing it with the asterisk, you instruct the computer to go to that address and read or write something.
 
@@ -19,7 +20,7 @@ At first I didn't pay much heed to this. But slowly, a question started brewing 
 It would **not** be a quick experiment.
 
 
-# On to the experiment!
+## On to the experiment!
 
 Obviously, two pointers with different addresses will compare unequal; that much is utterly uncontroversial. The primary question, however, is whether two pointers with the same address, _but coming from different allocations_, will compare equal or not. To answer this, we're going to attempt to create two pointers to the exact same address in memory, that have been produced from different allocations. We're then going to compare them and see what Rust declares about their equality.
 
@@ -95,7 +96,7 @@ I…
 …I think we just broke integer comparison.
 
 
-# Wat
+## Wat
 
 I guess it's now time to explain how this came to pass.
 
@@ -104,7 +105,7 @@ Before we do that, however, a word of warning: If you're looking for a good endi
 And now, the explanation. The tl;dr is “The sins of the parents are visited unto the children”; and the parent most pertinent here is C. C is the oldest still-widely-used language that gave its users pointers from the get-go[^²]. However, compared to other languages, it sometimes feels that pointers are _all you have_ in C. As a result,
 
 
-# When all you have is a pointer…
+## When all you have is a pointer…
 
 …everything starts to look like a dereference. C has so many uses for pointers that it's hard to keep track of them all:
 
@@ -136,7 +137,7 @@ Ordinary pointers, on their own, answer precisely none of those questions. And t
 We mentioned C, but what about other languages? A very important part of language design is to decide how you'll approach this issue. Many languages, for instance, solve this by saying “No pointers, ever. We'll copy things for you if need be, and delete them ourselves when they're no longer used.”. This can work fairly well, depending on the use-case. For other use-cases, however, it's the exact opposite of what you want.
 
 
-## Intermission: When Garbage Collection goes awry
+### Intermission: When Garbage Collection goes awry
 
 Open parenthesis.
 
@@ -153,7 +154,7 @@ In a sense… it's a smidge difficult for GC to be both necessary and sufficient
 Close parenthesis.
 
 
-# What does Rust do?
+## What does Rust do?
 
 Rust's answer to the afore-mentioned problems is to give the programmer several different pointer types, each of which has a guaranteed response to all of those questions; if not at compile-time, at least at run-time. For instance, for a `&[T; 2]` the answers are respectively “Yes, yes, no, yes, no, yes”. For an `Option<Rc<RefCell<[u8]>>>`, all of the answers are “maybe, ask me at run-time”[^⁸]. And so on.
 
@@ -171,7 +172,7 @@ As it just so happens, even LLVM agrees that the answers to those questions are 
 …was the last one.
 
 
-# Pointers and provenance
+## Pointers and provenance
 
 The last question, as it turns out, is important enough that even C has the vocabulary to express it: it's called `restrict` in C and `noalias` in LLVM. Of course, in practice, `restrict` was so rarely used in C that that it took the Rust team *several* roll-backs to fully stabilise all available uses of `noalias` in LLVM, and only in 1.54 was it stabilised for good. I mean, hopefully? I hope I won't jinx it.
 
@@ -202,7 +203,7 @@ Now add to that the fact that, for all architectures except one, provenance is a
     ```
     , which _also_ evaluates to `false`. LLVM's optimisations are nothing if not persistent, apparently.
 
-# But, LLVM really should care!
+## But, LLVM really should care!
 
 Yes. You and I think that, and its developers think that, but its technical baggage disagrees very strongly. And it has veto power over the entire thing.
 
@@ -213,7 +214,7 @@ In Rust, even when you have a raw pointer, as long as you never dereference it, 
 [^⁶]: `add` and `sub` are exceptions, because they give stronger guarantees about their result in exchange for permitting UB.
 
 
-# And the ~~best~~ worst part is yet to come!
+## And the ~~best~~ worst part is yet to come!
 
 Firstly: in Rust, pointer comparison is defined as a comparison _of their addresses alone_. In other words, the program was wrong to output `false` from the get-go, even before the non-determinism reared its ugly head.
 
@@ -245,7 +246,7 @@ int main(void) {
 ```
 This program produces the exact same behaviour, in both GCC and Clang, with both C++ and C compilers, as long as optimisations are enabled. The problem runs very, _very_ deep. (BTW, if this bug has already been reported in GCC, I'd appreciate a link.)
 
-# So… now what?
+## So… now what?
 
 Now, we shake our heads in impotent disappointment, and twiddle our thumbs in wait.
 
