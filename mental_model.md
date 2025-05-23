@@ -53,7 +53,7 @@ I could only scoff at this. What sort of remotely competent programmer doesn't k
 
 [^¹]: Just for fun, some equivalent branchless GPU code could be something like 
     ```c
-    int32_t mask = - (prev_step < 0);
+    mask = - (prev_step < 0);
     next_step = ((prev_step ^ mask) - mask) << 2;
     ```
     How's _that_ for unreadable?
