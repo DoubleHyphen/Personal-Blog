@@ -84,10 +84,10 @@ To test their answer to this question, I pose to them a few questions like the f
 * You are in danger of having to pay a huge fine, around 10% of your yearly revenue. There is only one person who can fix the situation, and he just left the company in very bad terms. He has offered to fix this for free, as long as you give him a formal written apology for the circumstances under which he left. Do you take his offer?
 * You find a new office space, a stone's throw away from your current one. Being much more spatious, it will allow your employees to have offices as luxurious as yours. Your calculations say this will make them twice as productive. Downside: This means that your office will not be more luxurious than theirs. Do you make the move?
 
-There is a common theme amongst all those questions, and it's this: “Would you prioritise money over social dominance?”. I'd be very surprised if more than a third of CEOs answer “yes”. To wit:
+There is a common theme amongst all those questions, and it's this: “Would you ever sacrifice profit for social dominance?”. I'd be very surprised if more than a third of CEOs answer “no”. To wit:
 * The Thing, of course! Why would I pay an employee more than the CEO‽
 * Me, apologise? _In writing‽_ Forget it.
-* Why would I give my employees offices as nice as mine‽
+* Why would I give my employees offices as nice as mine‽ They need to know who's boss!
 
 I won't tell you to prioritise one over the other—you're an adult, make your own decisions. Just don't fool yourself: make the decision _consciously_, by weighing the pros and cons of each.
 
