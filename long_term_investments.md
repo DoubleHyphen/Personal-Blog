@@ -5,7 +5,7 @@
 
 If you've not read the article to which I'm referring, the title of this piece sounds like utter insanity. Storing passwords in plain-text[^¹]‽ This is blasphemy! This is madness!
 
-[^¹]: If you don't know what the phrase even means, it's the cybersecurity equivalent of keeping a spare key under your mat and hoping no-one will think to look there.
+[^¹]: If you don't know what the phrase even means, it's the cybersecurity equivalent of keeping a spare key under your mat and hoping no bad people will think to look there.
 
 But no, I'm referring to a specific article called “[Maybe you should store your passwords in plaintext](https://www.qword.net/2023/04/30/maybe-you-should-store-passwords-in-plaintext)”. It's well worth reading, but the gist is as follows: Some people have realised that caring about the work that they do nets them _absolutely no benefits,_ so they have decided to not care about the work they do at all, to the point where they store passwords in plaintext—not their own, of course, but the passwords of the users of their companies' product. Thus, “storing passwords in plain-text” is short-hand for caring so little about the company as to not do even the barest minimum of extra work for it.
 
