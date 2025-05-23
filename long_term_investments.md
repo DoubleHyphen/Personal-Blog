@@ -12,7 +12,7 @@ But no, I'm referring to a specific article called “[Maybe you should store yo
 “Why bother improving things?” they ask. “What's in it _for me?_”
 
 
-## Bad advice
+## Levitt's advice
 
 The article writer has no answer to this, and even acknowledges that financial incentives don't work. The closest s/he comes to an answer is this quote from Steve Levitt:
 
@@ -27,7 +27,7 @@ I don't really think most people are that stupid, or naïve. There are _vanishin
 So, from a boss's perspective, the big question is: _How do you make employees care about the company?_
 
 
-## Good advice
+## My advice
 
 Disclaimer: I'm not a boss. I'm just Some Guy On The Internet™. I am, however, a human, and therefore have an inkling of how humans think—which is more than can be said of some bosses if I'm honest.
 
@@ -73,7 +73,9 @@ Some employees will take this to mean “That means I can keep failing and still
 No, the take-away lesson for _most_ employees is that the company is hoping to keep them employed for many years to come, and the immediate corollary of this is that _they have a vested interest in the company's longevity and long-term success._ When most of your colleagues have been with the company for 10+ years, odds are that you too can stay with the company for 10+ years; and when that happens, anything that threatens the company's financial health also directly threatens yours. Would _you_ store passwords in plain-text if the company viewed you as a long-term investment?
 
 
-## Do you want to make money, really?
+## Do you want to make money, _really_?
+
+This is a bit tangentially related to the article's main point, but bear with me for a moment.
 
 One of my most frequent recurring fantasies –at least, amongst the ones that don't involve swords or comically unrealistic proportions– is one where I make a presentation to a bunch of CEOs. There, I ask them one main question:
 
@@ -88,6 +90,8 @@ There is a common theme amongst all those questions, and it's this: “Would you
 * The Thing, of course! Why would I pay an employee more than the CEO‽
 * Me, apologise? _In writing‽_ Forget it.
 * Why would I give my employees offices as nice as mine‽ They need to know who's boss!
+
+These examples might or might not sound contrived. The crux of the issue remains: the laziest way to assert social dominance over your employees is to not value them, and employees who feel unvalued are liable to store passwords in plain-text.
 
 I won't tell you to prioritise one over the other—you're an adult, make your own decisions. Just don't fool yourself: make the decision _consciously_, by weighing the pros and cons of each.
 
