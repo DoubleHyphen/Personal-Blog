@@ -22,7 +22,7 @@ Not to put too fine a point on this, but **████. THAT. NOISE.**
 
 The reason this “is going to sound weird or bad” is because it's both of those things. It's essentially saying that suckers make the perfect employees. It's the reason why companies have started claiming to **“change the world!”** by, uh, marginally speeding a few things up here and there.
 
-I don't really think most people are that stupid, or naïve. There are _vanishingly few_ companies that are actually changing and reshaping the world in which we live –I think Spacex is one of them– and even then, an entry-level employee is unlikely to be doing work of material importance.
+I don't really think most people are that stupid, or naïve. There are _vanishingly few_ companies that are actually changing and reshaping the world in which we live –I think SpaceX is one of them– and even then, an entry-level employee is unlikely to be doing work of material importance.
 
 So, from a boss's perspective, the big question is: _How do you make employees care about the company?_
 
